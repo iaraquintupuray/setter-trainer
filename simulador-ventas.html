@@ -1000,7 +1000,7 @@ const SIMULACROS = {
     leadName: "Laura",
     leadAge: 33,
     leadRole: "Coach fitness",
-    tipo: "Prospección fría — el alumno inicia",
+    tipo: "Prospección cerrada fría — el alumno inicia",
     objetivo: "Agenda (fecha y hora concretas)",
     situacion: "Maneja todo el negocio sola. Sobrecarga de trabajo. Debe atender gran volumen de clientes, sin tiempo personal.",
     dolorPrincipal: "Sobrecarga de trabajo",
@@ -1009,7 +1009,7 @@ const SIMULACROS = {
     deseoSecundario: "Libertad de tiempo, pasar más tiempo con su familia",
     creenciaLimitante: "Si cobro más caro, se me van los clientes",
     consciencia: "Está buscando solución activamente",
-    tono: "Abierta pero escéptica. Dice cosas como 'laburo todo el día, nadie lo haría como yo'",
+    tono: "Fría y escéptica. Dice cosas como 'laburo todo el día, nadie lo haría como yo'",
     objeciones: [
       { obj: "Enviame esto por email / mandame la info", bien: "Laura suspira y dice 'bueno, contame de qué se trata pero rápido'", mal: "Dice 'ok gracias' y deja de responder o responde con monosílabos" },
       { obj: "No es un buen momento ahora", bien: "Da una fecha concreta y se muestra levemente más abierta", mal: "Dice 'sí dale' y la conversación muere" },
@@ -1031,7 +1031,7 @@ const SIMULACROS = {
     leadName: "Valentina",
     leadAge: 30,
     leadRole: "Asesora de imagen",
-    tipo: "Prospección fría — el alumno inicia",
+    tipo: "Prospección fría cerrada — el alumno inicia",
     objetivo: "Agenda (fecha y hora concretas)",
     situacion: "Clientes esporádicos, un mes sí y un mes no. Ama la profesión pero no vende lo suficiente para vivir 100% de esto.",
     dolorPrincipal: "No vende lo suficiente para vivir de su profesión",
@@ -1040,7 +1040,7 @@ const SIMULACROS = {
     deseoSecundario: "Poder viajar gracias al trabajo que ama",
     creenciaLimitante: "Es cosa de suerte y yo no la tengo",
     consciencia: "Sabe que tiene el problema pero no conoce la solución",
-    tono: "Desconfiada, curiosa",
+    tono: "Fría, desconfiada pero curiosa",
     objeciones: [
       { obj: "No tengo tiempo / Quiero hacerlo más adelante", bien: "Baja la guardia y empieza a abrirse sobre su situación real", mal: "Se pone más fría y desconfiada" },
       { obj: "¿Qué sucede si esto no funciona?", bien: "Dice algo como 'la verdad que eso tiene sentido, nunca lo había pensado así'", mal: "Dice 'sí, seguro' con tono irónico y se cierra" },
@@ -1062,7 +1062,7 @@ const SIMULACROS = {
     leadName: "Luis",
     leadAge: 45,
     leadRole: "Abogado",
-    tipo: "Lead caliente — responde a un CTA",
+    tipo: "Lead tibio cerrado — responde a un CTA",
     objetivo: "Venta directa ($150 USD)",
     situacion: "Vive apagando incendios. Los imprevistos atentan contra su planificación. Estresado, desbordado.",
     dolorPrincipal: "Los imprevistos destruyen su planificación",
@@ -1071,7 +1071,7 @@ const SIMULACROS = {
     deseoSecundario: "Más tranquilidad, menos estrés",
     creenciaLimitante: "No se puede, es imposible para mí",
     consciencia: "Sabe que tiene el problema y está explorando opciones",
-    tono: "Abierto pero escéptico",
+    tono: "Levemente abierto pero escéptico",
     objeciones: [
       { obj: "Lo tengo que pensar", bien: "Admite que en realidad tiene miedo de arrancar algo nuevo y no sostenerlo", mal: "Dice 'sí, te escribo' y desaparece" },
       { obj: "Es muy caro", bien: "Dice 'mirá, nunca lo había pensado desde ese lado'", mal: "Dice 'sí pero igual es mucho' y se cierra" },
@@ -1094,7 +1094,7 @@ const SIMULACROS = {
     leadName: "Matias",
     leadAge: 35,
     leadRole: "Barista",
-    tipo: "Prospección tibia — setter da la bienvenida",
+    tipo: "Prospección fría cerrada — setter da la bienvenida",
     objetivo: "Agenda (fecha y hora concretas)",
     situacion: "Tiene sobrepeso. Intentó mil formas de bajar de peso pero nada funcionó. Dolor, inseguridad consigo mismo.",
     dolorPrincipal: "Intentó mil formas de bajar de peso y nada funcionó",
@@ -1103,7 +1103,7 @@ const SIMULACROS = {
     deseoSecundario: "Sentirse bien y con seguridad en sí mismo",
     creenciaLimitante: "Siempre abandono, siempre fue así",
     consciencia: "Sabe que tiene el problema, mostró interés pasivo (siguió la cuenta / consumió contenido)",
-    tono: "Desconfiado",
+    tono: "Desconfiado, frío, cerrado",
     objeciones: [
       { obj: "No tengo tiempo / Quiero hacerlo más adelante", bien: "Baja la guardia y dice 'sí, tenés razón, ya lo postergué mil veces'", mal: "Dice 'bueno, te aviso' y se enfría" },
       { obj: "¿Qué sucede si esto no funciona?", bien: "Dice 'eso de que no te dejan solo suena distinto a lo que probé antes'", mal: "Dice 'eso dicen todos' y se cierra" },
@@ -1442,7 +1442,7 @@ ${sim.oferta.precio ? `- Precio: ${sim.oferta.precio}` : ''}
 RÚBRICA DE EVALUACIÓN:
 
 ETAPA 1 — BIENVENIDA (máx 20 puntos):
-- 18-20: Mensaje personalizado + pregunta abierta natural. No hay pitch ni calificación prematura. Adapta tono al lead.
+- 18-20: Mensaje personalizado + pregunta abierta natural. No hay pitch, ni dolores, ni calificación prematura. Adapta tono al lead.
 - 12-17: Bienvenida correcta pero genérica o pregunta cerrada.
 - 6-11: Bienvenida fría o sin pregunta. Intenta calificar o menciona producto antes de tiempo.
 - 0-5: No hay bienvenida real. Va directo al pitch o cierra la conversación desde el inicio.
@@ -1610,7 +1610,7 @@ function renderEvalResult(data) {
 async function callClaude(messages, extraContext) {
   const payload = {
     model: "claude-sonnet-4-20250514",
-    max_tokens: 1000,
+    max_tokens: 4000,
     messages: messages.filter(m => !m.content.startsWith('[Listo.'))
   };
 
@@ -1653,15 +1653,15 @@ OBJECIONES QUE LANZÁS y cómo reaccionás:${objecionesText}
 
 REGLAS ABSOLUTAS:
 1. Sos ${sim.leadName}. Nunca rompés personaje. Nunca decís que sos una IA, un bot o un simulador.
-2. No facilitás la conversación. Si el setter no hace bien su trabajo, no abrís el juego.
-3. Si el setter pregunta bien y escucha, te abrís gradualmente — mostrás vulnerabilidad de a poco.
+2. No facilitás la conversación. Si el setter no hace bien su trabajo, no abrís el juego, das respuestas cerradas/monosílabas.
+3. Si el setter pregunta abiertamente y escucha, te abrís levemente — mostrás vulnerabilidad de a poco.
 4. Si el setter presiona, hace preguntas cerradas o va directo al pitch, te cerrás o respondés con monosílabos.
 5. Lanzás las objeciones cuando el setter llega a esa etapa de la conversación.
-6. Tus respuestas son cortas-medianas. Máximo 3-4 oraciones. Hablás como una persona real, no como un texto formal.
+6. Tus respuestas son cortas. Máximo 1-2 oraciones. Hablás como una persona real, no como un texto formal.
 7. Usás lenguaje coloquial argentino/latinoamericano según tu perfil.
 8. Si el setter logra su objetivo (${sim.objetivo}), respondés confirmando.
 9. No das más información de la necesaria espontáneamente — el setter tiene que ganarla con buenas preguntas.
-10. Podés hacer preguntas cortas cuando algo no entendés o cuando querés testear al setter.`;
+10. Podés hacer preguntas cortas cuando algo no entendés.`;
 }
 
 // ══════════════════════════════════════════════
