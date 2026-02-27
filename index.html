@@ -1610,7 +1610,7 @@ function renderEvalResult(data) {
 async function callClaude(messages, extraContext) {
   const payload = {
     model: "claude-sonnet-4-20250514",
-    max_tokens: 4000,
+    max_tokens: 1000,
     messages: messages.filter(m => !m.content.startsWith('[Listo.'))
   };
 
